@@ -19,6 +19,13 @@ namespace CodingEventsDemo.ViewModels
         [EmailAddress]
         public string ContactEmail { get; set; }
 
+        [Required(ErrorMessage = "Location is required")]
+        public string Location { get; set; }
+
+        [Required(ErrorMessage = "Please estimate how many attendees for this event.")]
+        [StringLength(0, MinimumLength = 100000, ErrorMessage = "The venue cannot hold that many attendees.")]
+        public int NumOfPpl { get; set; }
+
         public EventType Type { get; set; }
 
         public List<SelectListItem> EventTypes { get; set; } = new List<SelectListItem>
