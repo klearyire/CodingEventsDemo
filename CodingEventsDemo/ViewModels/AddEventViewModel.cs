@@ -16,14 +16,15 @@ namespace CodingEventsDemo.ViewModels
         [StringLength(500, ErrorMessage = "Description too long!")]
         public string Description { get; set; }
 
-        [EmailAddress]
+        [Required]
+        [EmailAddress(ErrorMessage = "A valid email is required.")]
         public string ContactEmail { get; set; }
 
         [Required(ErrorMessage = "Location is required")]
         public string Location { get; set; }
 
         [Required(ErrorMessage = "Please estimate how many attendees for this event.")]
-        [StringLength(0, MinimumLength = 100000, ErrorMessage = "The venue cannot hold that many attendees.")]
+        [Range(0, 100000, ErrorMessage = "The venue cannot hold that many attendees.")]
         public int NumOfPpl { get; set; }
 
         public EventType Type { get; set; }
